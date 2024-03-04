@@ -1,0 +1,40 @@
+
+-Open IntelliJ IDEA.
+-Create a new Java project.
+-Create a new file (example.java or Main.java):
+
+-Inside the project, create a new Java file (example.java or Main.java).
+-Inside the Java file, implement the parsing code for command line arguments.
+- To implement command line argument parsing, you need to iterate through the provided array of command line arguments (args) and extract relevant information.
+- Follow these steps to achieve this:
+    - Initialize a HashMap<String, ArrayList<String>> to store command line arguments.
+    - Use a for loop to go through each element in the args array.
+
+            for (String key : parsedArgs.keySet()) {
+                        ArrayList<String> values = parsedArgs.get(key);
+
+                        if (values != null && !values.isEmpty()) {
+                            System.out.println(key + " -> " + values.get(0));
+                        } else {
+                            System.out.println(key + " -> No values");
+                        }
+                    }
+    - Check if the current argument starts with a dash ("-"). If it does, it's the beginning of a key. Create a new ArrayList to store its values.
+    - If the argument doesn't start with a dash, it's a value. Add it to the current ArrayList.
+- After processing each argument, if it was a key, add the key-value pair to the HashMap.
+- Print the HashMap to check if the parsing is working correctly.
+
+-To run the program with the provided arguments using IntelliJ IDEA, follow these steps:
+    - Make sure your main method is set up to execute the command line argument parsing and printing:
+    - In IntelliJ IDEA, look for the "Run" button (usually a green triangle) at the top of the IDE. You can also press Shift + F10 to run the program.
+    - Before running, ensure that your program is configured to accept command line arguments. In IntelliJ IDEA, navigate to the "Run" menu, then select "Edit Configurations...".
+
+- In the "Run/Debug Configurations" window, find your configuration for running the program. It may be named after your Java class (e.g., Main).
+- In the "Configuration" tab, look for the "Program arguments" field. Enter your command line arguments there:
+    -start "(0,0)" -target "(0,10)" -g "(0,1)" "(0,2)" "(0,3)" -f "(0,4,0,8)" -s "(0,5,3.5)" -c "(0,6,e)"
+
+- Now, click the "Run" button again (or press Shift + F10) to execute the program with the specified command line arguments.
+
+Check the "Run" tab at the bottom of the IntelliJ IDEA window for the output. You should see the parsed arguments printed to the console.
+
+Note: Make sure your IntelliJ IDEA is properly set up for Java development, and your Java SDK is configured correctly. If you encounter any issues, review your code and configurations to ensure everything is in order.
